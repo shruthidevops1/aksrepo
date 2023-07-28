@@ -2,9 +2,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apache-deployment
+  name: nginx-deployment
   labels:
-    app: apache-app
+    app: nginx-app
 spec:
   replicas: 1
   selector:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: apache-container
-        image: acrregistry09/apacheimg:#{Build.BuildId}#
+        image: acrregistry09/apacheimg:#{$(Build.BuildId)}#
         ports:
         - containerPort: 80
 
