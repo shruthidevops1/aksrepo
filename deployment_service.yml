@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: apache-deployment
   labels:
-    app: nginx-app
+    app: apache-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-app
+      app: apache-app
   template:
     metadata:
       labels:
-        app: nginx-app
+        app: apache-app
     spec:
       containers:
-      - name: nginx-container
-        image: nginx:1.7.9
+      - name: apache-container
+        image: acrregistry09.azurecr.io/apacheimg:#{Build.BuildId}#
         ports:
         - containerPort: 80
 
@@ -27,10 +27,10 @@ kind: Service
 metadata:
   name: my-service
   labels:
-    app: nginx-app
+    app: apache-app
 spec:
   selector:
-    app: nginx-app
+    app: apache-app
   type: LoadBalancer
   ports:
   - nodePort: 31000
