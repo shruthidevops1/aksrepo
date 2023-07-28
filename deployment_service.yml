@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: apache-container
-        image: acrregistry09/apacheimg:#{$(Build.BuildId)}#
+        image: acrregistry09/apacheimg:#{Build.BuildId}#
         ports:
         - containerPort: 80
 
