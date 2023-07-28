@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
       - name: apache-container
-        image: acrregistry09/apacheimg:#{Build.BuildId}#
+        image: acrregistry09.azureacr.io/apacheimg:#{Build.BuildId}#
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 
