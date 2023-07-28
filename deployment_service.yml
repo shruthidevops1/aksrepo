@@ -17,12 +17,10 @@ spec:
     spec:
       containers:
       - name: apache-container
-        image: acrregistry09.azureacr.io/apacheimg:#{Build.BuildId}#
+        image: shruthidevops1/apacheimg:#{Build.BuildId}#
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-      imagePullSecrets:
-        - name: myregistrykey
 
 ---
 apiVersion: v1
